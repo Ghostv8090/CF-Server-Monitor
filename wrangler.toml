@@ -8,10 +8,10 @@ keep_vars = true
 
 # 定时任务配置（UTC）
 # - 每分钟：执行离线节点、资源告警
-# - 每小时：合并执行其他定时任务（表轮换、旧表清理、按配置时区/小时触发服务器到期检测）
+# - UTC 整点：同一个触发器额外执行表轮换、旧表清理、到期检测和流量报告
 # - 注意同步修改deploy和index.js scheduled函数里面的值
 [triggers]
-crons = ["*/1 * * * *", "0 * * * *"]
+crons = ["* * * * *"]
 
 [assets]
 directory = "./dist"
