@@ -8,10 +8,14 @@ keep_vars = true
 
 # 定时任务配置（UTC）
 # - 每分钟：执行离线节点、资源告警
-# - UTC 整点：同一个触发器额外执行表轮换、旧表清理、到期检测和流量报告
+# - UTC 整点：同一个触发器额外执行仪表轮换、旧表清理、到期检测和流量报告
 # - 注意同步修改deploy和index.js scheduled函数里面的值
 [triggers]
 crons = ["* * * * *"]
+
+# Placement 定点：贴 D1 主库区域（WNAM/LAX）。缺失时每次部署都会清空线上定点
+[placement]
+region = "gcp:us-west2"
 
 [assets]
 directory = "./dist"
@@ -41,3 +45,23 @@ new_sqlite_classes = ["MetricsBroadcaster"]
 [dev]
 port = 8787
 local_protocol = "https"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
